@@ -1,5 +1,7 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 double gradeTopoints(double mark)
@@ -76,7 +78,7 @@ int main()
         course.push_back(c);
     }
 
-    double GPA = GPACalc(course);
+    double GPA = round(GPACalc(course) * 100) / 100;
 
     string generalgrade;
     if (GPA >= 3.7)
@@ -90,7 +92,7 @@ int main()
     else
         generalgrade = "Fail";
 
-    cout << "GPA is " << GPA << endl;
+    cout << "GPA is " << fixed << setprecision(2) << GPA << endl;
     cout << generalgrade;
 
     return 0;
